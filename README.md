@@ -3,6 +3,7 @@ All incoming changes from other branch are marked as a "conflict" to be solved.
 Ideal for collaboration on text like `tex` files or even code if one prefer to perform a hot review
 of changes locally in their favorite merging tool, instead of resorting to the limited options given
 by on-line tools.
+I wonder why there is no such merging strategy in git yet.
 
 # simulating a repository
 ```shell
