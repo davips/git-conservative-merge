@@ -1,6 +1,10 @@
 # conservative git merge
-Useful content about using and learning git
+All incoming changes from other branch are marked as a "conflict" to be solved.
+Ideal for collaboration on text like `tex` files or even code if one prefer to perform a hot review
+of changes locally in their favorite merging tool, instead of resorting to the limited options given
+by on-line tools.
 
+# simulating a repository
 ```shell
 mkdir force-conflict
 cd force-conflict
@@ -21,7 +25,7 @@ git add .
 git commit -m "First message"
 ```
 
-Simulating friend's contribution:
+# Simulating friend's contribution:
 ```shell
 git checkout -b friend
 ```
@@ -58,7 +62,7 @@ Switched to branch 'master'
 ```
 
 
-
+# Performing the merge as conservative as possible
 
 We recreate the two branches (`friend` and `master`) from a zeroed one (called here `ether`), so every change will be a conflict, effectively nullifying **temporarily** the common ancestor used by the 3-diff algorithm. In the end, just the external contribution and our changes will appear in the history, as expected.
 
