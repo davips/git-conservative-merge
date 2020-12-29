@@ -1,4 +1,4 @@
-# git-tips
+# conservative git merge
 Useful content about using and learning git
 
 ```shell
