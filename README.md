@@ -65,7 +65,7 @@ Switched to branch 'master'
 
 # Performing the merge as conservative as possible
 
-We recreate the two branches (`friend` and `master`) from a zeroed one (called here `ether`), so every change will be a conflict, effectively nullifying **temporarily** the common ancestor used by the 3-diff algorithm. In the end, just the external contribution and our changes will appear in the history, as expected.
+We recreate the two branches (`friend` and `master`) from a zeroed one (called here `temporary-branch-for-conservative-merge`), so every change will be a conflict, effectively nullifying **temporarily** the common ancestor used by the 3-diff algorithm. In the end, just the external contribution and our changes will appear in the history, as expected.
 
 ```shell
 git checkout master 
@@ -76,11 +76,11 @@ Switched to branch 'master'
 ```
 
 ```shell
-git checkout -b ether
+git checkout -b temporary-branch-for-conservative-merge
 ```
 ```python
 # output:
-Switched to a new branch 'ether'
+Switched to a new branch 'temporary-branch-for-conservative-merge'
 ```
 
 ```shell
@@ -104,7 +104,7 @@ Switched to a new branch 'master-from-empty'
 ```shell
 git checkout master .
 git commit -m "Recovering old content as new content"
-git checkout ether 
+git checkout temporary-branch-for-conservative-merge 
 git checkout -b friend-from-empty
 ```
 ```python
@@ -214,11 +214,11 @@ Date:   Mon Dec 28 10:05:44 2020 -0300
 
 Some clean up...
 ```bash
-git branch -D ether master-from-empty friend-from-empty
+git branch -D temporary-branch-for-conservative-merge master-from-empty friend-from-empty
 ```
 ```python
 # output:
-Deleted branch ether (was 0e892f6).
+Deleted branch temporary-branch-for-conservative-merge (was 0e892f6).
 Deleted branch master-from-empty (was 5677380).
 Deleted branch friend-from-empty (was 0c7bc17).
 ```
