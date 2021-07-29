@@ -1,11 +1,21 @@
 # conservative git merge
+Use the script:
+```bash
+git-conservative-merge.sh <our branch> <their branch>
+```
+
+All differences between `<our branch>` and `<their branch>` will be shown as conflicts.
+It assumes a clean working tree.
+I am not responsible for data loss or any kind of disaster resulting from the use or reading of this script.
+
+# Rationale
 All incoming changes from other branch are marked as a "conflict" to be solved.
 Ideal for collaboration on text like `tex` files or even code if one prefer to perform a hot review
 of changes locally in their favorite merging tool, instead of resorting to the limited options given
 by on-line tools.
 I wonder why there is no such merging strategy in git yet.
 
-# simulating a repository
+## simulating a repository
 ```shell
 mkdir force-conflict
 cd force-conflict
@@ -26,7 +36,7 @@ git add .
 git commit -m "First message"
 ```
 
-# Simulating friend's contribution:
+## Simulating friend's contribution:
 ```shell
 git checkout -b friend
 ```
@@ -63,7 +73,7 @@ Switched to branch 'master'
 ```
 
 
-# Performing the merge as conservative as possible
+## Performing the merge as conservative as possible
 
 We recreate the two branches (`friend` and `master`) from a zeroed one (called here `temporary-branch_for-conservative-merge`), so every change will be a conflict, effectively nullifying **temporarily** the common ancestor used by the 3-diff algorithm. In the end, just the external contribution and our changes will appear in the history, as expected.
 
@@ -222,5 +232,3 @@ Deleted branch temporary-branch_for-conservative-merge (was 0e892f6).
 Deleted branch ours-from-empty_for-conservative-merge (was 5677380).
 Deleted branch theirs-from-empty_for-conservative-merge (was 0c7bc17).
 ```
-
-**Yet to be put in a script, or replaced by a shorter list of git commands.**
