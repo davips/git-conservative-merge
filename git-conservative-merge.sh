@@ -1,5 +1,6 @@
 if [[ $# -ne 2 ]]; then
     echo "Usage: git-conservative-merge.sh <our branch> <their branch>"
+    exit
     read -p "Press Ctrl+C to try again..."
 fi
 
