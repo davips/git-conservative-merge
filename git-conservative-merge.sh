@@ -1,7 +1,7 @@
 if [[ $# -ne 2 ]]; then
-    echo "Usage: git-conservative-merge.sh <our branch> <their branch>"
+    echo "Usage:    git-conservative-merge.sh <our branch> <their branch>"
+    echo "Example:  git-conservative-merge.sh main origin/main"
     exit
-    read -p "Press Ctrl+C to try again..."
 fi
 
 git checkout $1 
